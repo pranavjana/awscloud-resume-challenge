@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Introduction Section -->
+    <div class="introduction" id="home">
+        <img src="images/memoji.png" alt="Pranav's Memoji" class="memoji">
+        <h1>Hi, I'm Pranav!</h1>
+        <p>Computer Engineering Undergraduate at the National University of Singapore with a passion for cloud computing and software development.</p>
+        <div class="social-icons">
+            <a href="https://github.com/pranavjana" target="_blank">
+                <img src="icons/github.svg" alt="GitHub" class="icon">
+            </a>
+            <a href="https://www.linkedin.com/in/pranavjana" target="_blank">
+                <img src="icons/linkedin.svg" alt="LinkedIn" class="icon">
+            </a>
+        </div>
+        
+        <!-- Add this new div -->
+        <div class="visitor-counter">
+            <span>Visitors: </span><span id="visitor-count">0</span>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="about-me" id="about">
+        <h1>About Me</h1>
+        <div class="about-content">
+            <img src="images/pranav.jpg" alt="Pranav's Photo" class="profile-image">
+            <div class="about-text">
+                <p>I am an undergraduate in <strong>Computer Engineering</strong> at the National University of Singapore, with a deep passion for <strong>cloud technologies</strong> and <strong>software development</strong>. My journey in tech is driven by a desire to explore and contribute to new and emerging technologies, with the aim of fostering innovative solutions that shape the future of our digital landscape.</p>
+                
+                <p>My skillset spans various programming languages, including <strong>Python</strong>, <strong>Java</strong>, and <strong>C++</strong>, alongside expertise in cloud platforms like <strong>AWS</strong>, where I hold an official certification.</p>
+                
+                <p>Additionally, I am proficient in <strong>web development</strong>, <strong>DevOps</strong> practices, and have a keen interest in <strong>artificial intelligence</strong> and <strong>scalable cloud architecture</strong>. I am eager to continuously broaden my knowledge and be an active contributor to groundbreaking advancements in technology.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <div class="resume" id="resume">
+        <!-- Certifications Section -->
+        <div class="certifications">
+            <h1>CERTIFICATIONS</h1>
+            <div class="certification-list">
+                <div class="certification-item">
+                    <h2>AWS Cloud Practitioner</h2>
+                    <p class="date">September 2023</p>
+                </div>
+                <div class="certification-item">
+                    <h2>AWS Solutions Architect Associate</h2>
+                    <p class="date">May 2024</p>
+                </div>
+                <div class="certification-item">
+                    <h2>Data Engineer Associate</h2>
+                    <p class="date">September 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="projects">
+            <h1>PROJECTS</h1>
+            <div class="project-list">
+                <div class="project-item">
+                    <h2>AWS Cloud Resume Challenge</h2>
+                    <p>This project is a static website built using HTML and CSS that showcases my skills and experiences. It includes sections for my certifications, projects, and a brief introduction. The website is designed to be clean, professional, and easy to navigate.</p>
+                    <a href="https://github.com/pranav-s-2001/aws-cloud-resume-challenge">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smooth scrolling script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <!-- Add this before closing body tag -->
+    <script src="index.js"></script>
+</body>
+</html>
