@@ -52,3 +52,33 @@ function animateCount(start, end, element) {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', updateVisitorCount);
+
+// Function to check if element is in viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to handle scroll animations
+function handleScrollAnimations() {
+    const elements = document.querySelectorAll('.introduction, .about-me, .certifications, .projects, .education, .certification-item, .project-item, .education-item');
+    
+    elements.forEach(element => {
+        if (isElementInViewport(element)) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', handleScrollAnimations);
+
+// Initial check for elements in viewport
+document.addEventListener('DOMContentLoaded', () => {
+    handleScrollAnimations();
+});

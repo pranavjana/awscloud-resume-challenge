@@ -128,64 +128,151 @@ body {
 
 /* Resume section container */
 .resume {
-    margin: 0;      /* Remove margin */
-    padding: 2rem;   
+    margin: 0;
+    padding: 4rem 2rem;   /* Increased padding for better vertical spacing */
     background-color: white;
-    border-radius: 0;     /* Remove rounded corners */
-    box-shadow: none;     /* Remove shadow */
 }
 
-/* Makes both section headings consistent */
+/* Makes section headings consistent */
+.education h1,
 .certifications h1,
 .projects h1 {
     display: inline-block;
     vertical-align: top;
-    margin-left: 10rem;    /* Keep headings aligned */
-    position: absolute;    /* Take headings out of flow */
-    font-weight: 600;  /* Bold weight for section headings */
+    margin-left: 10rem;
+    position: absolute;
+    font-weight: 600;
     color: #ff7300;
+    margin-bottom: 2rem;  /* Added bottom margin for headings */
 }
 
 /* Container for sections */
+.education,
 .certifications,
 .projects {
-    position: relative;    /* Enable absolute positioning of headings */
+    position: relative;
+    margin-bottom: 4rem;  /* Space between sections */
 }
 
-/* Makes both lists consistent and aligned */
+/* Add orange line spacers between sections */
+.certifications::after,
+.projects::after {
+    content: '';
+    display: block;
+    width: 80%;          /* Increased width to cover headings */
+    height: 2px;
+    background-color: #ff7300;
+    position: absolute;
+    bottom: -2rem;       
+    left: 15%;          /* Adjusted left position to start from headings */
+    transform: none;    /* Remove transform since we're not centering */
+    opacity: 0.7;       
+}
+
+/* Remove the line after the last section */
+.education::after {
+    display: none;
+}
+
+/* Makes lists consistent and aligned */
+.education-list,
 .certification-list,
 .project-list {
     display: inline-block;
     vertical-align: top;
-    max-width: 600px;      /* Limit width of content */
-    margin-left: 30rem;    /* Set specific distance from left edge */
+    max-width: 600px;
+    margin-left: 30rem;
+    padding-top: 0.5rem;  /* Add slight padding at top of lists */
 }
 
-/* Makes both items consistent */
+/* Makes items consistent */
+.education-item,
 .certification-item,
 .project-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;  /* Increased space between items */
 }
 
-/* Makes all headings consistent */
+.education-item:last-child,
+.certification-item:last-child,
+.project-item:last-child {
+    margin-bottom: 0;  /* Remove margin from last items */
+}
+
+/* Headings spacing */
+.education-item h2,
 .certification-item h2,
 .project-item h2 {
     color: #2d3748;
     font-size: 1.3rem;
-    margin-bottom: 0.3rem;
-    font-weight: 500;  /* Medium weight for sub-headings */
+    margin-bottom: 0.5rem;  /* Increased space after headings */
+    font-weight: 400;
 }
 
-/* Makes all secondary text consistent */
-.certification-item .date,
+/* Institution spacing */
+.education-item h4.institution {
+    margin-bottom: 0.4rem;  /* Space between institution and date */
+}
+
+/* Project description spacing */
 .project-item p {
-    color: #718096;
-    font-size: 0.9rem;
+    margin-bottom: 0.8rem;  /* Space between description and link */
+    line-height: 1.6;  /* Improved line height for readability */
 }
 
-/* Add some space between sections */
-.projects {
-    margin-top: 2rem;
+/* Media queries for resume section */
+@media screen and (max-width: 1024px) {
+    .education-list,
+    .certification-list,
+    .project-list {
+        margin-left: 25rem;    /* Adjusted for medium screens */
+    }
+
+    .education h1,
+    .certifications h1,
+    .projects h1 {
+        margin-left: 10rem;    /* Adjusted for medium screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .education h1,
+    .certifications h1,
+    .projects h1 {
+        position: static;
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .education-list,
+    .certification-list,
+    .project-list {
+        margin-left: 0;
+        padding: 0 1rem;
+    }
+
+    .resume {
+        padding: 3rem 1.5rem;  /* Adjusted padding for mobile */
+    }
+
+    .education,
+    .certifications,
+    .projects {
+        margin-bottom: 3rem;  /* Reduced section spacing on mobile */
+    }
+
+    .education-item,
+    .certification-item,
+    .project-item {
+        margin-bottom: 2rem;  /* Reduced item spacing on mobile */
+    }
+
+    .certifications::after,
+    .projects::after {
+        width: 90%;     /* Even wider line on mobile */
+        left: 5%;       /* Center on mobile */
+        bottom: -1.5rem;
+    }
 }
 
 /* Style the project link */
@@ -206,22 +293,32 @@ body {
     background-color: rgb(51, 51, 51);
     padding: 2rem;
     position: relative;
-    margin-bottom: 0;    /* Ensure no gap after about section */
-}
-
-.about-me h1 {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10rem;
-    position: absolute;
-    font-weight: 600;
-    color: #ff7300;
+    margin-bottom: 0;
 }
 
 .about-content {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
     align-items: flex-start;
+    padding-right: 8rem;
+    position: relative;
+}
+
+.about-text-container {
+    flex: 1;
+    padding-left: 2rem;
+}
+
+.about-me h1 {
+    font-weight: 600;
+    color: #ff7300;
+    margin-bottom: 2rem;
+    margin-left: 0;
+}
+
+.about-text {
+    max-width: 600px;
+    margin-left: 0;
 }
 
 .profile-image {
@@ -231,28 +328,21 @@ body {
     object-fit: cover;
     border: 3px solid #ff7300;
     margin-left: 8rem;
-    margin-top: 4rem; /* Space below the heading */
-}
-
-.about-text {
-    max-width: 600px;
-    margin-left: 5rem;
-    margin-top: 0;
 }
 
 .about-text p {
     color: #ffffff;
     line-height: 1.8;
     text-align: justify;
-    margin-bottom: 1.5rem; /* Space between paragraphs */
+    margin-bottom: 1.5rem;
 }
 
 .about-text p:last-child {
-    margin-bottom: 0; /* Remove margin from last paragraph */
+    margin-bottom: 0;
 }
 
 .about-text strong {
-    color: #ff7300;  /* Orange color to match your theme */
+    color: #ff7300;
     font-weight: 600;
 }
 
@@ -268,24 +358,11 @@ body {
 
 /* General responsive adjustments */
 @media screen and (max-width: 1024px) {
-    /* Adjust margins for medium screens */
+    .education-list,
     .certification-list,
     .project-list {
-        margin-left: 20rem;
-    }
-
-    .certifications h1,
-    .projects h1,
-    .about-me h1 {
-        margin-left: 5rem;
-    }
-
-    .profile-image {
-        margin-left: 5rem;
-    }
-
-    .about-text {
-        margin-left: 2rem;
+        margin: 0 auto;
+        max-width: 90%;
     }
 }
 
@@ -312,27 +389,31 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+        padding-right: 0;
     }
 
-    .about-me h1 {
-        position: static;
-        margin-left: 0;
-        text-align: center;
-        margin-bottom: 2rem;
+    .about-text-container {
+        padding-left: 0;
+    }
+
+    .about-text-container::before {
+        display: none;
     }
 
     .profile-image {
-        margin: 0;
-        width: 150px;
-        height: 150px;
+        margin-left: 0;
+    }
+
+    .about-me h1 {
+        text-align: center;
     }
 
     .about-text {
-        margin: 0;
         padding: 0 1rem;
     }
 
     /* Resume section */
+    .education h1,
     .certifications h1,
     .projects h1 {
         position: static;
@@ -341,6 +422,7 @@ body {
         margin-bottom: 2rem;
     }
 
+    .education-list,
     .certification-list,
     .project-list {
         margin-left: 0;
@@ -475,5 +557,93 @@ html, body {
     color: #ff7300;
     font-weight: 600;
     margin-left: 0.5rem;
+}
+
+/* Update the institution styling */
+.education-item h4.institution {
+    color: #4a5568;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+/* Update existing styles to remove the old institution class */
+.education-item .date,
+.certification-item .date,
+.project-item p {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* Add vertical separator line */
+.about-text-container::before {
+    content: '';
+    position: absolute;
+    left: calc(200px + 8rem + 2rem);  /* Image width + left margin + half of gap */
+    top: 50%;                         /* Start from middle */
+    transform: translateY(-50%);      /* Center vertically */
+    height: 80%;                      /* Reduce height to 80% */
+    width: 2px;
+    background-color: #ff7300;
+}
+
+/* Add base animation styles */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add animation classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Apply to specific sections */
+.introduction,
+.about-me,
+.certifications,
+.projects,
+.education {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.introduction.visible,
+.about-me.visible,
+.certifications.visible,
+.projects.visible,
+.education.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add stagger effect to items within sections */
+.certification-item,
+.project-item,
+.education-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.certification-item.visible,
+.project-item.visible,
+.education-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
