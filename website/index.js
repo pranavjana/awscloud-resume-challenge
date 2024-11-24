@@ -66,7 +66,7 @@ function isElementInViewport(el) {
 
 // Function to handle scroll animations
 function handleScrollAnimations() {
-    const elements = document.querySelectorAll('.introduction, .about-me, .certifications, .projects, .education, .certification-item, .project-item, .education-item');
+    const elements = document.querySelectorAll('.skills-grid, .certifications, .projects, .education, .certification-item, .project-item, .education-item');
     
     elements.forEach(element => {
         if (isElementInViewport(element)) {

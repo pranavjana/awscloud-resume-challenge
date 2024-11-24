@@ -102,7 +102,7 @@ body {
     }
 }
 
-/* Update the children elements of introduction to have staggered animations */
+/* Update the children elements of introduction to have original staggered animations */
 .introduction > * {
     opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
@@ -116,7 +116,8 @@ body {
     animation-delay: 0.4s;
 }
 
-.introduction p {
+/* Group the h2 and location animation together */
+.introduction .intro-details {
     animation-delay: 0.6s;
 }
 
@@ -125,24 +126,42 @@ body {
 }
 
 .introduction .visitor-counter {
-    animation-delay: 1s;
+    animation-delay: 1.0s;
+}
+
+/* Add this new class */
+.intro-details {
+    text-align: center;
+}
+
+/* Update existing styles to remove individual delays */
+.introduction h2,
+.introduction .location {
+    margin-bottom: 0.5rem;
 }
 
 /* Introduction text styling */
 .introduction h1 {
     color: #ff7300;
     text-align: center;
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;  /* Add space between letters in heading */
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-size: 2.5rem;  /* Slightly larger for the name */
 }
 
-.introduction p {
+.introduction h2 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 1rem;
-    letter-spacing: 0.05em;  /* Slightly less spacing for paragraph */
-    max-width: 600px;        /* Limit the width of the paragraph */
-    line-height: 1.6;        /* Add some line height for better readability */
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-size: 1.5rem;  /* Smaller than h1 */
+}
+
+/* Update animation delay for the new structure */
+.introduction h2 {
+    animation-delay: 0.5s;
 }
 
 /* Social icons styling */
@@ -329,8 +348,8 @@ body {
 
 /* About Me Section */
 .about-me {
-    background-color: rgb(51, 51, 51);
-    padding: 2rem;
+    background-color: #121212;
+    padding: 4rem 2rem;
     position: relative;
     margin-bottom: 0;
 }
@@ -346,6 +365,7 @@ body {
 .about-text-container {
     flex: 1;
     padding-left: 2rem;
+    color: #ffffff;
 }
 
 .about-me h1 {
@@ -365,13 +385,12 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ff7300;
     margin-left: 8rem;
 }
 
 .about-text p {
-    color: #ffffff;
-    line-height: 1.8;
+    color: #e0e0e0;
+    line-height: 1.6;
     text-align: justify;
     margin-bottom: 1.5rem;
 }
@@ -645,7 +664,7 @@ html, body {
 .education {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Back to 0.8s */
 }
 
 .about-me.visible,
@@ -662,7 +681,7 @@ html, body {
 .education-item {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Back to 0.8s */
 }
 
 .certification-item.visible,
@@ -670,5 +689,271 @@ html, body {
 .education-item.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Update the skills grid styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Change to 4 columns */
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px; /* Add max-width for better layout control */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Update the skill tile size */
+.skill-tile {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Update the glowing border effect */
+.skill-tile::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        #ff7300,
+        transparent 30%,
+        transparent 70%,
+        #ff7300
+    );
+    animation: rotate 3s linear infinite; /* Changed to 3s for smoother rotation */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Slightly slower fade in */
+}
+
+/* Update the hover effect */
+.skill-tile:hover::before {
+    opacity: 0.6; /* Reduced opacity for subtler glow */
+}
+
+/* Update the hover transition */
+.skill-tile:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add inner background to cover the rotating gradient */
+.skill-tile::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Add the rotation animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add media query for responsive layout */
+@media screen and (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 0.8rem;  /* Tighter gap between tiles */
+        padding: 0.8rem;  /* Less padding around grid */
+    }
+
+    .skill-tile {
+        min-height: 100px;  /* Much shorter tiles */
+        padding: 0.8rem;  /* Less padding inside tiles */
+    }
+
+    .skill-icon {
+        width: 30px;  /* Smaller icons */
+        height: 30px;
+        margin-bottom: 0.3rem;  /* Less space below icon */
+    }
+
+    .skill-tile h3 {
+        font-size: 0.9rem;  /* Smaller heading */
+        margin: 0;  /* Remove margin */
+    }
+
+    .skill-tile p {
+        display: none;  /* Hide descriptions on mobile */
+    }
+
+    /* Adjust the glowing border effect for mobile */
+    .skill-tile::before {
+        animation: none;  /* Disable rotation animation on mobile */
+    }
+
+    .skill-tile:hover {
+        transform: none;  /* Disable hover effect on mobile */
+    }
+}
+
+/* Add even more compact styling for very small screens */
+@media screen and (max-width: 320px) {
+    .skills-grid {
+        gap: 0.5rem;  /* Even tighter gap */
+        padding: 0.5rem;  /* Less padding */
+    }
+
+    .skill-tile {
+        min-height: 80px;  /* Even shorter tiles */
+        padding: 0.5rem;  /* Less padding */
+    }
+
+    .skill-icon {
+        width: 25px;  /* Even smaller icons */
+        height: 25px;
+    }
+
+    .skill-tile h3 {
+        font-size: 0.8rem;  /* Smaller text */
+    }
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    filter: brightness(1); /* Ensure icons are visible */
+}
+
+.skill-tile h3 {
+    color: #ffffff;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.skill-tile p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+    z-index: 2;
+}
+
+/* Make sure all content stays above the background effects */
+.skill-tile .skill-icon,
+.skill-tile h3,
+.skill-tile p {
+    position: relative;
+    z-index: 2; /* Higher than the ::after pseudo-element */
+}
+
+/* Add new location styles */
+.location {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.location img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);  /* Makes the icon white */
+}
+
+/* Add this with your introduction text styling */
+.introduction h3 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    font-weight: 400;  /* Lighter weight than h2 */
+    font-size: 1.1rem;  /* Smaller than h2 */
+    opacity: 0.9;  /* Slightly more subtle than h2 */
+}
+
+/* Update animation delay for the new structure */
+.introduction h3 {
+    animation-delay: 0.6s;
+}
+
+/* Remove about-me from the general fade-in animations */
+.certifications,
+.projects,
+.education {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Remove fade-in animation from about-me section */
+.about-me {
+    opacity: 1;
+    transform: none;
+}
+
+/* Add fade-in animation specifically for skills grid */
+.skills-grid {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.skills-grid.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Update the skills grid styles for mobile */
+@media screen and (max-width: 480px) {
+    .skills-grid {
+        gap: 1rem;  /* Reduce gap between tiles */
+        padding: 1rem 0.5rem;  /* Reduce padding around grid */
+    }
+
+    .skill-tile {
+        min-height: 160px;  /* Reduce tile height */
+        padding: 1rem;  /* Reduce padding inside tiles */
+    }
+
+    .skill-icon {
+        width: 35px;  /* Make icons smaller */
+        height: 35px;
+        margin-bottom: 0.5rem;  /* Reduce space below icon */
+    }
+
+    .skill-tile h3 {
+        font-size: 1rem;  /* Smaller heading */
+        margin: 0.3rem 0;  /* Reduce margins */
+    }
+
+    .skill-tile p {
+        font-size: 0.8rem;  /* Smaller description text */
+        line-height: 1.3;  /* Tighter line height */
+    }
 }
 

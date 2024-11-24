@@ -16,15 +16,22 @@
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="#resume">Resume</a></li>
         </ul>
     </nav>
 
     <!-- Introduction Section -->
     <div class="introduction" id="home">
-        <img src="images/memoji.png" alt="Pranav's Memoji" class="memoji">
-        <h1>Hi, I'm Pranav!</h1>
-        <p>Computer Engineering undergraduate at the National University of Singapore with expertise in cloud systems, programming, and software design.</p>
+        <img src="images/memoji.png" alt="Memoji" class="memoji">
+        <h1>Hi, I'm Pranav</h1>
+        <div class="intro-details">
+            <h2>Computer Engineering Undergraduate | Software Engineer</h2>
+            <div class="location">
+                <img src="icons/location-pin.svg" alt="Location">
+                <span>National University of Singapore</span>
+            </div>
+        </div>
         <div class="social-icons">
             <a href="https://github.com/pranavjana" target="_blank">
                 <img src="icons/github.svg" alt="GitHub" class="icon">
@@ -34,7 +41,6 @@
             </a>
         </div>
         
-        <!-- Add this new div -->
         <div class="visitor-counter">
             <span>Visitors: </span><span id="visitor-count">0</span>
         </div>
@@ -47,8 +53,51 @@
             <div class="about-text-container">
                 <h1>About Me</h1>
                 <div class="about-text">
-                    <p>I am a <strong>Computer Engineering</strong> undergraduate at the <strong>National University of Singapore</strong> with a passion for <strong>cloud technologies</strong> and <strong>software development</strong>. Skilled in <strong>HTML</strong>, <strong>CSS</strong>, <strong>Javascript</strong>, <strong>Python</strong>, <strong>C++</strong>, and <strong>AWS Certified</strong>, I specialize in <strong>web development</strong>, <strong>DevOps</strong>, and <strong>scalable cloud architectures</strong>. My interests include <strong>artificial intelligence</strong> and emerging technologies, driving my goal to create innovative digital solutions.</p>
+                    <p>I am a <strong>Computer Engineering</strong> student at the <strong>National University of Singapore</strong>, focused on building practical solutions through <strong>software</strong> and <strong>cloud systems</strong>. Below are some of the tools and technologies I have experience with.</p>
                 </div>
+            </div>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-tile">
+                <img src="icons/aws.svg" alt="AWS" class="skill-icon">
+                <h3>AWS</h3>
+                <p>Cloud computing services and infrastructure</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/python.svg" alt="Python" class="skill-icon">
+                <h3>Python</h3>
+                <p>General-purpose programming language</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/javascript.svg" alt="JavaScript" class="skill-icon">
+                <h3>JavaScript</h3>
+                <p>Web development and interactive applications</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/html5.svg" alt="HTML5" class="skill-icon">
+                <h3>HTML5</h3>
+                <p>Structure and content of web pages</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/css3.svg" alt="CSS3" class="skill-icon">
+                <h3>CSS3</h3>
+                <p>Styling and layout of web applications</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/cpp.svg" alt="C++" class="skill-icon">
+                <h3>C++</h3>
+                <p>Systems programming and algorithms</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/react.svg" alt="React" class="skill-icon">
+                <h3>React</h3>
+                <p>Frontend library for building user interfaces</p>
+            </div>
+            <div class="skill-tile">
+                <img src="icons/arduino.svg" alt="Arduino" class="skill-icon">
+                <h3>Arduino</h3>
+                <p>Embedded systems and hardware programming</p>
             </div>
         </div>
     </div>
@@ -80,8 +129,13 @@
             <div class="project-list">
                 <div class="project-item">
                     <h2>AWS Cloud Resume Challenge</h2>
-                    <p>This static portfoliowebsite, built with HTML and CSS, showcases my web development skills and leverages AWS cloud technologies, including Lambda, DynamoDB, S3, and CloudFront.</p>
+                    <p>This static portfolio website, built with HTML and CSS, showcases my web development skills and leverages AWS cloud technologies, including Lambda, DynamoDB, S3, and CloudFront.</p>
                     <a href="https://github.com/pranavjana/awscloud-resume-challenge.git">View Project</a>
+                </div>
+                <div class="project-item">
+                    <h2>mBot Maze Solver</h2>
+                    <p>Worked in a team of four to build an mBot that could solve a maze using Arduino and C++. The project involved circuit design and applying machine learning principles such as K-Nearest Neighbors (KNN) for navigation.</p>
+                    <a href="https://github.com/pranavjana/cg1111a_amazing_race.git">View Project</a>
                 </div>
             </div>
         </div>
